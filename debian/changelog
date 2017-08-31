@@ -1,0 +1,18 @@
+avr-gcc-720 (0.0.2) uecide; urgency=low
+
+  * Added Atmel logo
+
+ -- Matt Jenkins <matt@majenko.co.uk>  Thu, 31 Aug 2017 13:16:42 +0100
+
+avr-gcc-720 (0.0.1) uecide; urgency=low
+
+  * Ported to new rules based system
+
+ -- Matt Jenkins <matt@majenko.co.uk>  Thu, 31 Aug 2017 12:16:24 +0100
+
+avr-gcc-720 (0.0.0) uecide; urgency=low
+
+  * Initial import
+
+ -- Matt Jenkins <matt@majenko.co.uk>  Thu, 31 Aug 2017 11:51:09 +0100
+

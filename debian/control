@@ -1,0 +1,19 @@
+Source: avr-gcc-720
+Section: compilers
+XBSC-Family: avr
+Priority: extra
+Maintainer: Matt Jenkins <matt@majenko.co.uk>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: http://arduino.cc
+
+Package: avr-gcc-720
+Section: compilers
+Architecture: any
+XBSC-Group: AVR
+Depends: 
+Description: GCC 7.2.0 for AVR
+ Version 7.2.0 of the GCC toolchain is now the default for Arduino based systems.
+
+
+
