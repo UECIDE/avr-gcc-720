@@ -14,49 +14,48 @@ URL=unknown
 VER=7.2.0
 UVER=720
 COMPILER=avr-gcc
-GCCVER=arduino5
+GCCVER=majenko1
+SRC=http://majenko.co.uk/downloads
 LOGO=Atmel_logo.svg
 
 ifeq (${DEB_HOST_ARCH},linux-amd64)
-	URL=http://downloads.arduino.cc/tools/${COMPILER}-${VER}-${GCCVER}-x86_64-pc-linux-gnu.tar.bz2
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-x86_64-pc-linux-gnu.tar.bz2
 	EXTRACT=tar -C build -jxf
 	SUFFIX=tar.bz2
 endif
 
 ifeq (${DEB_HOST_ARCH},linux-i386)
-	URL=http://downloads.arduino.cc/tools/${COMPILER}-${VER}-${GCCVER}-i686-pc-linux-gnu.tar.bz2
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-i686-pc-linux-gnu.tar.bz2
 	EXTRACT=tar -C build -jxf
 	SUFFIX=tar.bz2
 endif
 
 ifeq (${DEB_HOST_ARCH},linux-armhf)
-	URL=http://downloads.arduino.cc/tools/${COMPILER}-${VER}-${GCCVER}-armhf-pc-linux-gnu.tar.bz2
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-armhf-pc-linux-gnu.tar.bz2
 	EXTRACT=tar -C build -jxf
 	SUFFIX=tar.bz2
 endif
 
 ifeq (${DEB_HOST_ARCH},linux-armel)
-	URL=http://downloads.arduino.cc/tools/${COMPILER}-${VER}-${GCCVER}-armhf-pc-linux-gnu.tar.bz2
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-armhf-pc-linux-gnu.tar.bz2
 	EXTRACT=tar -C build -jxf
 	SUFFIX=tar.bz2
 endif
 
 ifeq (${DEB_HOST_ARCH},windows-i386)
-	URL=http://blog.zakkemble.co.uk/download/avr-gcc-7.2.0-x86-mingw.zip
-	EXTRACT=unzip -d build
-	SUFFIX=zip
-	SUB=avr-gcc-7.2.0-x86-mingw
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-i686-mingw32.tar.bz2
+	EXTRACT=tar -C build -jxf
+	SUFFIX=tar.bz2
 endif
 
 ifeq (${DEB_HOST_ARCH},windows-amd64)
-	URL=http://blog.zakkemble.co.uk/download/avr-gcc-7.2.0-x64-mingw.zip
-	EXTRACT=unzip -d build
-	SUFFIX=zip
-	SUB=avr-gcc-7.2.0-x86-mingw
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-x86_64-mingw32.tar.bz2
+	EXTRACT=tar -C build -jxf
+	SUFFIX=tar.bz2
 endif
 
 ifeq (${DEB_HOST_ARCH},darwin-amd64)
-	URL=http://downloads.arduino.cc/tools/${COMPILER}-${VER}-${GCCVER}-i386-apple-darwin11.tar.bz2
+	URL=${SRC}/${COMPILER}-${VER}-${GCCVER}-i386-apple-darwin11.tar.bz2
 	EXTRACT=tar -C build -jxf
 	SUFFIX=tar.bz2
 endif
@@ -90,7 +89,7 @@ override_dh_auto_clean:
 override_dh_auto_install:
 	mkdir -p debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}
 	mkdir -p debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}/icons
-	cp -RL build/${SUB}/* debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}/
+	cp -RL build/avr/* debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}/
 	cp debian/uecide/compiler.txt debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}/
 	convert debian/uecide/${LOGO} -resize 128 -alpha remove -background white debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}/icons/logo128.png
 	convert debian/uecide/${LOGO} -resize 64 -alpha remove -background white debian/${COMPILER}-${UVER}/compilers/${COMPILER}-${UVER}/icons/logo64.png
