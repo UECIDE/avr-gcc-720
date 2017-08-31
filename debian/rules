@@ -79,9 +79,11 @@ override_dh_shlibdeps:
 
 override_dh_auto_build:
 	wget -c -O ../../downloads/${COMPILER}-${DEB_HOST_ARCH}-${VER}.${SUFFIX} ${URL}
+	wget -c -O ../../downloads/avr-libc-2.0.0.tar.bz2 ${SRC}/avr-libc-2.0.0.tar.bz2
 	rm -rf build
 	mkdir -p build
 	${EXTRACT} ../../downloads/${COMPILER}-${DEB_HOST_ARCH}-${VER}.${SUFFIX}
+	tar -C build/avr -jxf ../../downloads/avr-libc-2.0.0.tar.bz2
 
 override_dh_auto_clean:
 	rm -rf build
